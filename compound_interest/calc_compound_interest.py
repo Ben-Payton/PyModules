@@ -32,9 +32,13 @@ Your ${principle} at {rate}% growth will become ${amount} after {time_interval} 
 This represents {profit_percent}% growth.
     """
     return summary.format(**summary_dict)
+
+
 if __name__ == "__main__":
     def main():
-        print(calc_amount(1,7,4,10))
-        print(calc_profit(1,7,4,10))
-        print(summarize(1,3.5,4,12))
+        principle = float(input("What is your principle amount?: $"))
+        rate = float(input("What is the percent interest?: "))
+        frequency = float(input("How many times in a year are you given interest?: "))
+        time_interval = float(input("How many years are you planning on keeping that money there?: "))
+        print(summarize(principle,rate,frequency,time_interval))
     main()
