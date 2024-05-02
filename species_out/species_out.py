@@ -16,13 +16,14 @@ class species_out_file:
                 self.species_list.append(i.split())
                 del self.species_list[-1][0]
             else:
-                numbers_list.append(i.split)
+                self.numbers_list.append(i.split())
                 for i in range(len(self.numbers_list[-1])):
                     self.numbers_list[-1][i] = int(self.numbers_list[-1][i])
         
-        self.dict_vals = self.add_keys()
+        self.add_keys()
         for i in range(len(self.species_list)):
-            self.add_values()
+            self.add_values(i)
+
 
     def check_keys(self,key,dict):
         return key in dict.keys()
@@ -38,13 +39,13 @@ class species_out_file:
     def add_keys(self):
         for i in self.species_list:
             for key in i:
-                if not check_keys(self.dict_vals,key)
-        return dict
+                if not self.check_keys(key,self.dict_vals):
+                    self.dict_vals[key] = [key]
     
-    def add_values(self):
+    def add_values(self,num):
         for i in self.dict_vals.keys():
-            if i in self.species_list:
-                self.dict_vals[i].append(self.numbers_list[self.species_list.index(i)])
+            if i in self.species_list[num]:
+                self.dict_vals[i].append(self.numbers_list[num][self.species_list[num].index(i)])
             else:
                 self.dict_vals[i].append(0)
 
